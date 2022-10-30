@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Story from "../story/Story";
+import Comment from "./comment/Comment";
 import "./feed.scss";
 
 const Feed = () => {
+  const [reply, setReply] = useState("");
+  const [uniqueKey, setUniqueKey] = useState(1);
+  const [commentList, setCommentList] = useState([]);
+  console.log(commentList);
+
+  function getReply(e) {
+    const comment = e.target.value;
+    setReply(comment);
+  }
+
+  function submitComment(e) {
+    e.preventDefault();
+    if (reply.length === 0) return;
+    setCommentList([
+      ...commentList,
+      { id: uniqueKey, account: "hello", reply },
+    ]);
+    setUniqueKey(prev => prev + 1);
+    setReply("");
+  }
+
   return (
     <div className="storyAndFeed">
       <Story />
@@ -24,29 +46,40 @@ const Feed = () => {
         </div>
         <div className="responseWrapper">
           <div className="feedResponse">
-            <i className="fa-regular fa-heart" />
-            <i className="fa-regular fa-comment" />
-            <i className="fa-regular fa-paper-plane" />
-            <i className="fa-regular fa-bookmark" />
+            {ICONS.map(icon => {
+              return <i key={icon.id} className={icon.className} />;
+            })}
           </div>
           <div className="likeCounter">{`좋아요 ${"00"}개`}</div>
           <div className="replyWrapper">
-            <p className="reply">
-              {`${"account"} ${"lorem*100"}`}
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining
-            </p>
+            <div className="userAccount">
+              account
+              <span>&nbsp;</span>
+              <span className="reply">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </span>
+            </div>
             <i className="fa-regular fa-heart" />
           </div>
+          {commentList.map(({ id, account, reply }) => {
+            return <Comment key={id} account={account} reply={reply} />;
+          })}
         </div>
         <div className="commentWrapper">
-          <form className="commentForm">
-            <input className="comment" placeholder="댓글 달기..." />
-            <button className="submitButton">게시</button>
+          <form className="commentForm" onSubmit={submitComment}>
+            <input
+              className="comment"
+              placeholder="댓글 달기..."
+              onChange={getReply}
+              value={reply}
+            />
+            <button
+              className={reply.length >= 1 ? "submitOn" : "submitOff"}
+              onClick={submitComment}
+            >
+              게시
+            </button>
           </form>
         </div>
       </div>
@@ -55,3 +88,10 @@ const Feed = () => {
 };
 
 export default Feed;
+
+const ICONS = [
+  { id: 1, className: "fa-regular fa-heart" },
+  { id: 2, className: "fa-regular fa-comment" },
+  { id: 3, className: "fa-regular fa-paper-plane" },
+  { id: 4, className: "fa-regular fa-bookmark" },
+];
