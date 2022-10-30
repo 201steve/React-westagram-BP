@@ -3,57 +3,53 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
 
-.loginContainer {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
+  .loginContainer {
+    padding: 50px;
+    border: 1px solid grey;
+    text-align: center;
 
-  padding: 50px;
-  border: 1px solid grey;
-  text-align: center;
+    .title {
+      font-family: "Pacifico", cursive;
+      font-size: 50px;
+    }
+    .loginForm {
+      display: flex;
+      flex-direction: column;
+      margin: 80px 0 50px 0;
+      font-size: 15px;
 
-  .title {
-    font-family: "Pacifico", cursive;
-    font-size: 50px;
-  }
-}
+      .userId,
+      .userPassword {
+        width: 350px;
+        margin-bottom: 10px;
+        padding: 10px 0 10px 10px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        background-color: #fafafa;
+        outline: none;
+      }
 
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  margin: 80px 0 50px 0;
-  font-size: 15px;
-
-  .userId,
-  .userPassword {
-    width: 350px;
-    margin-bottom: 10px;
-    padding: 10px 0 10px 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: #fafafa;
-    outline: none;
-  }
-
-  .loginButton {
-    padding: 15px 0;
-    background-color: skyblue;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    outline: none;
-    opacity: 0.5;
-    cursor: default;
-  }
-
-  .findPassword {
-    color: darkblue;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    opacity: 0.7;
+      .loginButton {
+        padding: 15px 0;
+        background-color: skyblue;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        outline: none;
+        opacity: 0.5;
+        cursor: default;
+        &:disabled {
+          background-color: blue;
+        }
+      }
+    }
+    .findPassword {
+      color: darkblue;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.7;
+    }
   }
 }
