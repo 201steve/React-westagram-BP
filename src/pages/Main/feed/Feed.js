@@ -7,7 +7,6 @@ const Feed = ({ id, account, mockReply, src }) => {
   const [reply, setReply] = useState("");
   const [uniqueKey, setUniqueKey] = useState(1);
   const [commentList, setCommentList] = useState([]);
-  console.log(commentList);
 
   function getReply(e) {
     const comment = e.target.value;
