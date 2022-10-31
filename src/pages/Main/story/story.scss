@@ -1,11 +1,14 @@
 @import "../../../styles/variabels.scss";
 
-.storyWrapper {
-  display: flex;
-  justify-content: space-around;
-  padding: 16px;
-  margin-top: 16px;
-  margin-bottom: 0;
-  border: 1px solid $grey;
-  border-radius: 10px;
+.story {
+  max-width: 470px;
+  .storyWrapper {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    margin-top: 16px;
+    margin-bottom: 0;
+    border: 1px solid $grey;
+    border-radius: 10px;
+  }
 }

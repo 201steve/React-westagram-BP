@@ -3,7 +3,7 @@ import Story from "../story/Story";
 import Comment from "./comment/Comment";
 import "./feed.scss";
 
-const Feed = () => {
+const Feed = ({ id, account, mockReply, src }) => {
   const [reply, setReply] = useState("");
   const [uniqueKey, setUniqueKey] = useState(1);
   const [commentList, setCommentList] = useState([]);
@@ -27,7 +27,6 @@ const Feed = () => {
 
   return (
     <div className="storyAndFeed">
-      <Story />
       <div className="feedContainer">
         <div className="profileWrapper">
           <img
@@ -38,11 +37,7 @@ const Feed = () => {
           <span className="userAccount">account</span>
         </div>
         <div className="feedImageWrapper">
-          <img
-            className="feedImage"
-            src="/images/architecture1.jpg"
-            alt="feed"
-          />
+          <img className="feedImage" src={src} alt="feed" />
         </div>
         <div className="responseWrapper">
           <div className="feedResponse">
@@ -53,12 +48,9 @@ const Feed = () => {
           <div className="likeCounter">{`좋아요 ${"00"}개`}</div>
           <div className="replyWrapper">
             <div className="userAccount">
-              account
+              {account}
               <span>&nbsp;</span>
-              <span className="reply">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </span>
+              <span className="reply">{mockReply}</span>
             </div>
             <i className="fa-regular fa-heart" />
           </div>

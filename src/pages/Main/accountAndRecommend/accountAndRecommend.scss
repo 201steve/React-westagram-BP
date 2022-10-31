@@ -60,16 +60,18 @@
     }
   }
   .siteMapWrapper {
+    height: 50px;
     margin: 30px 5px;
     word-break: keep-all;
-    height: 50px;
 
     .siteMapList {
       display: flex;
       flex-wrap: wrap;
+      max-width: 300px;
 
       .siteInfoLink {
         display: flex;
+        margin-bottom: 5px;
         font-size: 12px;
         text-decoration: none;
         color: $dark-grey;
