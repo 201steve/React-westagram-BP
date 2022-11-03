@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Story from "../story/Story";
 import Comment from "./comment/Comment";
 import "./feed.scss";
 

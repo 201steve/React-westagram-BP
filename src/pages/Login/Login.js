@@ -40,7 +40,7 @@ const Login = () => {
       });
   }
   return (
-    <div className="container">
+    <div className="login">
       <main className="loginContainer">
         <h1 className="title">Westagram</h1>
         <form className="loginForm" onSubmit={validateUser}>
@@ -59,10 +59,9 @@ const Login = () => {
             placeholder="비밀번호"
           />
           <button
-            onClick={() => {}}
             className="loginButton"
             type="submit"
-            disabled={isUserInfoGot}
+            disabled={!isUserInfoGot}
           >
             로그인
           </button>

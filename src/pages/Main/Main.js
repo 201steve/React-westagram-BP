@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./nav/Nav";
-import "./main.scss";
+import Story from "./story/Story";
 import Feed from "./feed/Feed";
 import AccountAndRecommend from "./accountAndRecommend/AccountAndRecommend";
-import Story from "./story/Story";
+import "./main.scss";
 
 const Main = () => {
   const [feedList, setFeedList] = useState([]);
-  console.log(feedList);
+
   useEffect(() => {
     fetch("/data/sample.json")
       .then(response => response.json())
